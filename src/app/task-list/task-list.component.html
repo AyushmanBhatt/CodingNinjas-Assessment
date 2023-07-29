@@ -1,0 +1,27 @@
+<div class="task-history container">
+  <h2>Task List</h2>
+  <div class="filters">
+    <label>Sort By:</label>
+    <select [(ngModel)]="sortBy">
+      <option value="dueDate">Due Date</option>
+      <option value="priority">Priority</option>
+      <option value="status">Status</option>
+    </select>
+  </div>
+
+  <div *ngFor="let task of sortedTasks" class="task-item" [@slideInAnimation]>
+    <h3>{{ task.title }}</h3>
+    <p>Description: {{ task.description }}</p>
+    <p>Due Date: {{ formatDate(task.dueDate) }}</p>
+    <p>Priority: {{ task.priority }}</p>
+    <p>Status: {{ task.status }}</p>
+    <button class="btn btn-primary" (click)="updateStatus(task.id, 'to-do')" *ngIf="task.status !== 'to-do'">To
+      Do</button>
+    <button class="btn btn-warning" (click)="updateStatus(task.id, 'in-progress')"
+      *ngIf="task.status !== 'in-progress'">In Progress</button>
+    <button class="btn btn-success" (click)="updateStatus(task.id, 'completed')"
+      *ngIf="task.status !== 'completed'">Completed</button>
+    <button class="btn btn-dark" (click)="deleteTask(task.id)">Delete</button>
+  </div>
+  <button class="btn btn-export" (click)="exportToCSV()">Export to CSV</button>
+</div>

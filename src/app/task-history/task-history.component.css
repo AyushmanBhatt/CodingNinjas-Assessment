@@ -1,0 +1,17 @@
+/* Responsive styles for task history */
+ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  /* Mobile-friendly styles */
+  @media screen and (max-width: 768px) {
+    ul {
+      padding-left: 15px;
+    }
+  }
+  

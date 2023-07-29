@@ -1,0 +1,17 @@
+/* Responsive styles for task list */
+.filters {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    margin-right: 5px;
+  }
+  
+  /* Mobile-friendly styles */
+  @media screen and (max-width: 768px) {
+    button {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+  
